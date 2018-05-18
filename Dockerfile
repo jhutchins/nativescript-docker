@@ -1,3 +1,6 @@
 FROM node:alpine
 
-RUN npm install -g nativescript
+COPY user-settings.json /root/.local/share/.nativescript-cli/user-settings.json
+
+RUN npm install -g nativescript \
+    && tns setup cloud
